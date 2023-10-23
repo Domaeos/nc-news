@@ -1,33 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Link, Route, Routes } from 'react-router-dom'
+import Nav from 'react-bootstrap/Nav';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DisplayArticles from './DisplayArticles';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const apiUrl = "https://news-app-4jdh.onrender.com/api/";
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Nav className="justify-content-center" activeKey="/home" >
+        <Nav.Item>
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <div className='app-container'>
+        <Routes>
+          <Route path="/articles" element={<DisplayArticles apiUrl={apiUrl} />} />
+          <Route path="/" element={<h3>Home</h3>} />
+          <Route path="*" element={<h3>Not found</h3>} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

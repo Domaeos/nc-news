@@ -1,42 +1,57 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.article-grid {
+  display: grid;
+  width: 100vw;
+  grid-gap: 20px; 
+  grid-template-columns: repeat(3, auto);
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.article-by-id-img {
+  height: 400px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.app-container {
+  margin-top: 20px;
+  display: grid;
+  width: 100vw;
+  grid-gap: 10px;
+  justify-content: center;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.article-container {
+  display: grid;
+  width: 80vw;
+  grid-gap: 10px;
+  margin-bottom: 20px;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.article-byline {
+  margin-top: 5px;
+  font-size: 10px;
+  text-align: right;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.comment-container {
+  display: grid;
+  width: 100%;
+  justify-items: right;
+  grid-gap: 10px;
 }
-
-.card {
-  padding: 2em;
+.comment-card {
+  width: 80%;
 }
-
-.read-the-docs {
-  color: #888;
+.comment-card-author {
+  text-align: right;
+  font-size: 15px;
+}
+.comment-card-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.comment-card-footer {
+  text-align: right;
+  margin-top: 5px;
+  font-size: 10px;
+}
+.article-comment-count {
+  text-align: right;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+.card-topic {
+  font-size: 10px;
 }
