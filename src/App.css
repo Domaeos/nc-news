@@ -2,7 +2,8 @@
   display: grid;
   width: 100vw;
   grid-gap: 20px; 
-  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
 }
 .article-by-id-img {
   height: 400px;
