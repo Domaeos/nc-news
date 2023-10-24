@@ -1,22 +1,58 @@
 .article-grid {
   display: grid;
   width: 100vw;
-  grid-gap: 20px; 
-  justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  padding: 20px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .article-by-id-img {
   height: 400px;
 }
 .app-container {
-  padding: 20px;
   margin-top: 20px;
   display: grid;
   width: 100vw;
   grid-gap: 10px;
   justify-content: center;
 }
+.article-container {
+  display: grid;
+  width: 80vw;
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+.article-byline {
+  margin-top: 5px;
+  font-size: 10px;
+  text-align: right;
+}
+.comment-container {
+  display: grid;
+  width: 100%;
+  justify-items: right;
+  grid-gap: 10px;
+}
+.comment-card {
+  width: 80%;
+}
+.comment-card-author {
+  text-align: right;
+  font-size: 15px;
+}
+.comment-card-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.comment-card-footer {
+  text-align: right;
+  margin-top: 5px;
+  font-size: 10px;
+}
 .article-comment-count {
   text-align: right;
   margin-right: 20px;
+  margin-bottom: 5px;
+}
+.card-topic {
+  font-size: 10px;
 }

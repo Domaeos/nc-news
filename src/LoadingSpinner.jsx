@@ -8,9 +8,9 @@ export default function LoadingSpinner({ message }) {
                     className="visually-hidden">{message ?? "Loading"}
                 </span>
             </Spinner>
-            <details className='user-info'>
+            <article className='user-info'>
                 {message ?? ""}
-            </details>
+            </article>
         </>
     )
 }

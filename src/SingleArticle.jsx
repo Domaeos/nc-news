@@ -4,6 +4,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import { getSingleArticle } from "./api/article-api";
 import { useParams } from "react-router-dom";
 import ErrorMessage from './ErrorMessage';
+import ShowComments from './ShowComments';
 
 export default function SingleArticle() {
     const [article, setArticle] = useState(null);
@@ -31,7 +32,8 @@ export default function SingleArticle() {
 
 
     return (
-        <>
+
+        <article className='article-container'>
             <Card>
                 <Card.Header>{article.title}</Card.Header>
                 <Card.Body>
@@ -43,10 +45,13 @@ export default function SingleArticle() {
                 </Card.Body>
                 <article className="article-comment-count">
                     {+article.comment_count &&
-                        <a href="#" onClick={() => setViewComments(!viewComments)}>{(!viewComments) ? "View" : "Hide"} {article.comment_count} comments
+                        <a href="#comments" onClick={() => setViewComments(!viewComments)}>{(!viewComments) ? "View" : "Hide"} {article.comment_count} comments
                         </a> || "No comments"}
                 </article>
             </Card>
-        </>
+            <article id="comment-section" className="comment-container">
+                {viewComments && <ShowComments articleID={articleID} />}
+            </article>
+        </article>
     )
 }
