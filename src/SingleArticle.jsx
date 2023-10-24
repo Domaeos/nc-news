@@ -5,6 +5,7 @@ import { getSingleArticle } from "./api/article-api";
 import { useParams } from "react-router-dom";
 import ErrorMessage from './ErrorMessage';
 import ShowComments from './ShowComments';
+import ArticleVote from './ArticleVote';
 
 export default function SingleArticle() {
     const [article, setArticle] = useState(null);
@@ -30,7 +31,6 @@ export default function SingleArticle() {
     if (isLoading) return <LoadingSpinner message="Fetching article" />
     if (err) return <ErrorMessage message="Article not found" />
 
-
     return (
 
         <article className='article-container'>
@@ -43,10 +43,15 @@ export default function SingleArticle() {
                         {article.body}
                     </Card.Text>
                 </Card.Body>
-                <article className="article-comment-count">
-                    {+article.comment_count &&
-                        <a href="#comments" onClick={() => setViewComments(!viewComments)}>{(!viewComments) ? "View" : "Hide"} {article.comment_count} comments
-                        </a> || "No comments"}
+                <article className='single-article-footer'>
+                    <article className='single-article-votes'>
+                        <ArticleVote votes={article.votes} articleID={articleID} />
+                    </article>
+                    <article className="article-comment-count">
+                        {+article.comment_count &&
+                            <a href="#comments" onClick={() => setViewComments(!viewComments)}>{(!viewComments) ? "View" : "Hide"} {article.comment_count} comments
+                            </a> || "No comments"}
+                    </article>
                 </article>
             </Card>
             <article id="comment-section" className="comment-container">
