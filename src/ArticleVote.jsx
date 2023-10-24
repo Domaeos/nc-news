@@ -43,7 +43,7 @@ export default function ArticleVote({ votes, articleID }) {
                 } catch (err) {
                     setVoteInfo("Vote failed - try again in a few minutes")
                     setTimeout(() => {
-                        setVoteInfo(false);
+                        setVoteInfo(null);
                     }, 2000)
                 }
             }
