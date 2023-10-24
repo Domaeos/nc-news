@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import { getArticles } from './api/article-api';
 import { Link } from 'react-router-dom';
+import ErrorMessage from './ErrorMessage';
 
 export default function ArticleGrid() {
     const [isLoading, setIsLoading] = useState(true);
@@ -25,9 +26,11 @@ export default function ArticleGrid() {
     }, [])
 
     if (isLoading) return <LoadingSpinner message="Loading articles" />
+    
+    if (err) return <ErrorMessage message="Could not retrieve articles" />
 
     return (
-        <div className="article-grid">
+        <article className="article-grid">
             {articles.map((article) => {
                 return (
                     <Card as={Link} to={`/articles/${article.article_id}`} key={article.article_id} style={{ width: '18rem' }}>
@@ -40,6 +43,6 @@ export default function ArticleGrid() {
                     </Card>
                 )
             })}
-        </div>
+        </article>
     )
 }   

@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import DisplayArticles from './DisplayArticles';
 import './App.css'
+import SingleArticle from './SingleArticle';
+import ArticleGrid from './ArticleGrid';
 
 function App() {
   const apiUrl = "https://news-app-4jdh.onrender.com/api/";
@@ -20,7 +21,8 @@ function App() {
       </Nav>
       <main className='app-container'>
         <Routes>
-          <Route path="/articles/*" element={<DisplayArticles />} />
+          <Route path="/articles/" element={<ArticleGrid />} />
+          <Route path="/articles/:articleID" element={<SingleArticle />} />
           <Route path="/" element={<h3>Home</h3>} />
           <Route path="*" element={<h3>Not found</h3>} />
         </Routes>

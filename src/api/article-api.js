@@ -4,8 +4,12 @@ const newsAPI = axios.create({
 })
 
 
-export const getArticles = async (articleID = null) => {
-    const result = await newsAPI.get("/articles/" + (articleID ?? ""));
-    if (articleID) return result.data.article[0];
+export const getArticles = async () => {
+    const result = await newsAPI.get("/articles/");
     return result.data.articles;
+}
+
+export const getSingleArticle = async (articleID) => {
+    const result = await newsAPI.get("/articles/" + articleID);
+    return result.data.article[0];
 }
