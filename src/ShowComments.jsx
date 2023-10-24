@@ -32,14 +32,14 @@ export default function ShowComments({ articleID }) {
                 return (
                     <Card key={comment.comment_id} className="comment-card">
                         <Card.Header>
-                            <div className="comment-card-header">
-                                <div className="comment-card-votes">
+                            <article className="comment-card-header">
+                                <article className="comment-card-votes">
                                     {comment.votes} votes
-                                </div>
-                                <div className="comment-card-author">
+                                </article>
+                                <article className="comment-card-author">
                                     {comment.author}
-                                </div>
-                            </div>
+                                </article>
+                            </article>
                         </Card.Header>
                         <Card.Body>
                             <Card.Text>
