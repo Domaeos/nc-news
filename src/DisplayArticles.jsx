@@ -1,7 +1,7 @@
 import ArticleGrid from "./ArticleGrid";
 
-export default function DisplayArticles({ apiUrl }) {
+export default function DisplayArticles() {
     return (
-        <ArticleGrid apiUrl={apiUrl} />
+        <ArticleGrid />
     )
 }
