@@ -18,13 +18,13 @@ function App() {
           <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
         </Nav.Item>
       </Nav>
-      <div className='app-container'>
+      <main className='app-container'>
         <Routes>
-          <Route path="/articles" element={<DisplayArticles apiUrl={apiUrl} />} />
+          <Route path="/articles" element={<DisplayArticles />} />
           <Route path="/" element={<h3>Home</h3>} />
           <Route path="*" element={<h3>Not found</h3>} />
         </Routes>
-      </div>
+      </main>
     </>
   )
 }
