@@ -18,3 +18,9 @@ export const getComments = async (articleID) => {
         const response = await newsAPI.get("/articles/" + articleID + "/comments")
         return response.data.comments;
 }
+
+export const applyVote = async (articleID, vote_increment) => { 
+    const newVote = { vote_increment }
+    const response = await newsAPI.patch("/articles/" + articleID, newVote)
+    return response
+}

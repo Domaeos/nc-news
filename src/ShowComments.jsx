@@ -3,6 +3,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import Card from 'react-bootstrap/Card';
 import { getComments } from "./api/article-api";
 import ErrorMessage from "./ErrorMessage";
+import CommentVote from "./ArticleVote";
 
 export default function ShowComments({ articleID }) {
     const [comments, setComments] = useState(null);
@@ -34,7 +35,7 @@ export default function ShowComments({ articleID }) {
                         <Card.Header>
                             <article className="comment-card-header">
                                 <article className="comment-card-votes">
-                                    {comment.votes} votes
+                                    Votes: {comment.votes}
                                 </article>
                                 <article className="comment-card-author">
                                     {comment.author}

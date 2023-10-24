@@ -5,9 +5,11 @@
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
 .article-by-id-img {
   height: 400px;
 }
+
 .app-container {
   margin-top: 20px;
   display: grid;
@@ -15,44 +17,84 @@
   grid-gap: 10px;
   justify-content: center;
 }
+
 .article-container {
   display: grid;
   width: 80vw;
   grid-gap: 10px;
   margin-bottom: 20px;
+  padding: 20px;
 }
+
 .article-byline {
   margin-top: 5px;
   font-size: 10px;
   text-align: right;
 }
+
 .comment-container {
   display: grid;
   width: 100%;
   justify-items: right;
   grid-gap: 10px;
 }
+
 .comment-card {
   width: 80%;
 }
+
 .comment-card-author {
   text-align: right;
   font-size: 15px;
 }
+
 .comment-card-header {
   display: grid;
   grid-template-columns: auto 1fr;
 }
+
 .comment-card-footer {
   text-align: right;
   margin-top: 5px;
   font-size: 10px;
 }
+
 .article-comment-count {
   text-align: right;
   margin-right: 20px;
   margin-bottom: 5px;
 }
+
 .card-topic {
   font-size: 10px;
+}
+
+.single-article-footer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.single-article-votes {
+  margin-left: 10px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.article-vote-button {
+  display: inline-block;
+}
+.vote-info {
+  margin-left: 20px;
+  display: inline-block;
+  font-size: 10px;
+}
+.vote-info.success {
+  color: green;
+}
+
+.vote-info.fail {
+  color: red;
 }
