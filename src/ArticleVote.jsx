@@ -49,6 +49,10 @@ export default function ArticleVote({ votes, articleID }) {
             }
         }
         patchVote();
+
+        return function cleanupVotesState() {
+            setVoteInfo(null);
+        }
     }, [vote]);
 
 
