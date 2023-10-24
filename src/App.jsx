@@ -20,7 +20,7 @@ function App() {
       </Nav>
       <main className='app-container'>
         <Routes>
-          <Route path="/articles" element={<DisplayArticles />} />
+          <Route path="/articles/*" element={<DisplayArticles />} />
           <Route path="/" element={<h3>Home</h3>} />
           <Route path="*" element={<h3>Not found</h3>} />
         </Routes>
