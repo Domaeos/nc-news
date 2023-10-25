@@ -5,8 +5,7 @@ import { getComments } from "./api/article-api";
 import ErrorMessage from "./ErrorMessage";
 import CommentVote from "./ArticleVote";
 
-export default function ShowComments({ articleID }) {
-    const [comments, setComments] = useState(null);
+export default function ShowComments({ comments, setComments, articleID }) {
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
 
@@ -31,7 +30,7 @@ export default function ShowComments({ articleID }) {
         <>
             {comments.map(comment => {
                 return (
-                    <Card key={comment.comment_id} className="comment-card">
+                    <Card key={comment.comment_id} className={`comment-card` + (comment.newlyAdded ? " new-comment" : "")}>
                         <Card.Header>
                             <article className="comment-card-header">
                                 <article className="comment-card-votes">

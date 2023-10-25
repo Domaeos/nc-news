@@ -2,8 +2,9 @@
   display: grid;
   width: 100vw;
   padding: 20px;
+  justify-items: center;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .article-by-id-img {
@@ -18,10 +19,17 @@
   justify-content: center;
 }
 
+.add-comment-header {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr auto;
+}
+
 .article-container {
   display: grid;
   width: 80vw;
   grid-gap: 10px;
+  align-content: center;
   margin-bottom: 20px;
   padding: 20px;
 }
@@ -61,10 +69,37 @@
 
 .article-comment-count {
   text-align: right;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-content: center;
   margin-right: 20px;
   margin-bottom: 5px;
+  padding: 20px;
 }
 
+.login-input {
+  width: 400px;
+}
+.account-login-button {
+  margin-top: 20px;
+  width: 100%;
+}
+.account-login-form {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+.stay-signed-in-switch {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.error-message {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: red;
+}
 .card-topic {
   font-size: 10px;
 }
@@ -73,11 +108,19 @@
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
+  align-content: center;
 }
 
 .single-article-votes {
   margin-left: 10px;
-  display: inline-block;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, auto) 1fr;
+  align-items: center;
+  align-content: center;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -91,10 +134,56 @@
   display: inline-block;
   font-size: 10px;
 }
-.vote-info.success {
+.success {
   color: green;
 }
 
-.vote-info.fail {
+.fail {
   color: red;
+}
+.add-comment-section {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr auto;
+  grid-gap: 5px;
+  justify-items: right;
+}
+
+.comment-form {
+  display: grid;
+  width: 80%;
+}
+.comment-body-textarea {
+  resize: none;
+}
+.comment-button-grid {
+  display: grid;
+  justify-items: right;
+  grid-gap: 10px;
+  grid-template-columns: 1fr auto;
+}
+.submit-comment-button {
+  width: 100px;
+}
+.discard-comment-button {
+  width: 100px;
+}
+
+.new-comment{
+  animation: highlight-comment 2000ms ease-out;
+}
+
+/* 
+
+KEYFRAMES / ANIMATIONS]
+
+*/
+
+@keyframes highlight-comment {
+  0% {
+    background-color: rgb(165, 246, 165);
+  }
+  100% {
+    background-color: white;
+  }
 }

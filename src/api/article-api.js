@@ -15,12 +15,31 @@ export const getSingleArticle = async (articleID) => {
 }
 
 export const getComments = async (articleID) => {
-        const response = await newsAPI.get("/articles/" + articleID + "/comments")
-        return response.data.comments;
+    const response = await newsAPI.get("/articles/" + articleID + "/comments")
+    return response.data.comments;
 }
 
-export const applyVote = async (articleID, vote_increment) => { 
+export const applyVote = async (articleID, vote_increment) => {
     const newVote = { vote_increment }
     const response = await newsAPI.patch("/articles/" + articleID, newVote)
     return response
+}
+
+export const checkValidUser = async (username) => {
+    const response = await newsAPI.get("/users");
+    const validUsers = response.data.users;
+    if (validUsers.some(user => {
+        return user.username === username;
+    })) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export const addComment = async (articleID, commentObj) => {
+    const response = await newsAPI
+        .post(`/articles/${articleID}/comments`, commentObj)
+
+    return response;
 }
