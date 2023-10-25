@@ -3,6 +3,11 @@ const newsAPI = axios.create({
     baseURL: "https://news-app-4jdh.onrender.com/api/"
 })
 
+export const deleteComment = async (commentID) => {
+    const result = await newsAPI.delete("comments/" + commentID)
+    console.log(result);
+    return result;
+}
 
 export const getArticles = async () => {
     const result = await newsAPI.get("/articles/");
