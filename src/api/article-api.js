@@ -4,8 +4,10 @@ const newsAPI = axios.create({
 })
 
 
-export const getArticles = async () => {
-    const result = await newsAPI.get("/articles/");
+export const getArticles = async (topic) => {
+    const topicGreenList = await getTopics();
+    const validTopic = topicGreenList.some(match => match.slug === topic);
+    const result = await newsAPI.get("/articles" + (validTopic ? `?topic=${topic}` : ""));
     return result.data.articles;
 }
 
@@ -42,4 +44,9 @@ export const addComment = async (articleID, commentObj) => {
         .post(`/articles/${articleID}/comments`, commentObj)
 
     return response;
+}
+
+export const getTopics = async () => {
+    const response = await newsAPI.get("/topics")
+    return response.data.topics;
 }
