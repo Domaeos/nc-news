@@ -57,12 +57,12 @@ export default function ArticleVote({ votes, articleID }) {
 
 
     return (
-        <div className="single-article-votes">
+        <article className="single-article-votes">
             <Button className="aritcle-vote-button"
                 disabled={voteAction.voted && voteAction.down}
                 onClick={(e) => handleVote(-1)}
                 variant="primary">-</Button>
-            <article className='single-article-votes'>
+            <article className='vote-count'>
                 {votes + vote}
             </article>
             <Button className="aritcle-vote-button"
@@ -70,6 +70,6 @@ export default function ArticleVote({ votes, articleID }) {
                 onClick={(e) => handleVote(1)}
                 variant="primary">+</Button>
            <VoteMessage voteInfo={voteInfo}/>
-        </div>
+        </article>
     )
 }

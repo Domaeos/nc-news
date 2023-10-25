@@ -1,18 +1,22 @@
 import Card from 'react-bootstrap/Card';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext} from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import { getSingleArticle } from "./api/article-api";
 import { useParams } from "react-router-dom";
 import ErrorMessage from './ErrorMessage';
 import ShowComments from './ShowComments';
+import { UserContext } from './UserContext';
 import ArticleVote from './ArticleVote';
+import CommentForm from './CommentForm';
 
 export default function SingleArticle() {
+    const { user, setUser } = useContext(UserContext)
     const [article, setArticle] = useState(null);
     const [viewComments, setViewComments] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const { articleID } = useParams();
     const [err, setErr] = useState(null);
+    const [comments, setComments] = useState(null);
 
     useEffect(() => {
         const fetchArticle = async () => {
@@ -54,8 +58,9 @@ export default function SingleArticle() {
                     </article>
                 </article>
             </Card>
+            <CommentForm setComments={setComments} viewComments={viewComments}/>
             <article id="comment-section" className="comment-container">
-                {viewComments && <ShowComments articleID={articleID} />}
+                {viewComments && <ShowComments comments={comments} setComments={setComments} articleID={articleID} />}
             </article>
         </article>
     )

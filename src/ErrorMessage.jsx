@@ -1,5 +1,5 @@
 export default function ErrorMessage({ message }) {
     return (
-        <h3>Error: {message ?? "Request unsuccessful"}</h3>
+        <label className="error-message">{message ?? "Request unsuccessful"}</label>
     )
 }
