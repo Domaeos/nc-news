@@ -19,7 +19,6 @@ export default function Login() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        console.log(staySignedIn);
         if (/^[a-z0-9]+$/i.test(usernameInput)) {
             e.target[0].classList.remove("is-invalid")
             setUsernameValidation(false);
@@ -50,8 +49,6 @@ export default function Login() {
         } else {
             setErr("User not found")
         }
-
-
     }
 
     return (

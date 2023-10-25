@@ -4,7 +4,7 @@
   padding: 20px;
   justify-items: center;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .article-by-id-img {

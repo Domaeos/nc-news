@@ -33,7 +33,7 @@ export default function ArticleGrid() {
         <article className="article-grid">
             {articles.map((article) => {
                 return (
-                    <Card as={Link} to={`/articles/${article.article_id}`} key={article.article_id} style={{ width: '18rem' }}>
+                    <Card as={Link} to={`/articles/${article.article_id}`} key={article.article_id} style={{ width: '20rem' }}>
                         <Card.Img variant="top" src={article.article_img_url} />
                         <ListGroup className="list-group-flush">
                             <ListGroup.Item >{article.author}</ListGroup.Item>
