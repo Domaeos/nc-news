@@ -5,7 +5,6 @@ const newsAPI = axios.create({
 
 export const deleteComment = async (commentID) => {
     const result = await newsAPI.delete("comments/" + commentID)
-    console.log(result);
     return result;
 }
 
@@ -45,6 +44,5 @@ export const checkValidUser = async (username) => {
 export const addComment = async (articleID, commentObj) => {
     const response = await newsAPI
         .post(`/articles/${articleID}/comments`, commentObj)
-
     return response;
 }

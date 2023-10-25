@@ -1,5 +1,4 @@
 export default function CommentMessage({ hasSubmitted }) {
-    console.log(hasSubmitted);
     if (hasSubmitted === null) return <></>;
 
     if (hasSubmitted === true) return (

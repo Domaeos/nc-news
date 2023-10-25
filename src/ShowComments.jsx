@@ -15,7 +15,7 @@ export default function ShowComments({ comments, setComments, articleID }) {
     const [deleteErr, setDeleteErr] = useState(null);
     const [deleted, setDeleted] = useState(null);
 
-    const { user, setUser } = useContext(UserContext)
+    const { user } = useContext(UserContext)
 
     useEffect(() => {
         const fetchComments = async () => {
@@ -29,16 +29,20 @@ export default function ShowComments({ comments, setComments, articleID }) {
             }
         }
         fetchComments();
-    }, [])
+    }, [deleted]);
 
     async function handleDelete(e) {
         try {
             const idToDelete = e.target.id.replace("del_", "")
-            const response = await deleteComment(idToDelete)
-            setDeleted(idToDelete);
+            await deleteComment(idToDelete)
+            setDeleted(idToDelete)
         } catch (err) {
-            e.target.disabled = false;  
-            setDeleteErr(err);
+            const failedID = e.target.id.replace("del_", "");
+            setDeleteErr(+failedID);
+            setTimeout(() => {
+                setDeleteErr(null);
+                e.target.disabled = false;
+            }, 2000) 
         }
     }
 
@@ -72,7 +76,6 @@ export default function ShowComments({ comments, setComments, articleID }) {
                                 {user === comment.author && (
                                     <ButtonGroup size="sm">
                                         <Button
-                                            className={deleted === comment.comment_id && "comment-delete"}
                                             id={"del_" + comment.comment_id}
                                             onClick={(e) => {
                                                 e.target.disabled = true;
@@ -81,6 +84,10 @@ export default function ShowComments({ comments, setComments, articleID }) {
                                             variant="danger">Delete</Button>
                                     </ButtonGroup>
                                 )}
+                            </article>
+                            <article className={`comment-action-info` 
+                            + ((deleteErr === comment.comment_id) ? " fail" : "")}>
+                                {(deleteErr === comment.comment_id) ? "Failed to delete comment" : "" }
                             </article>
                             <article className="comment-footer-date">
                                 On {comment.created_at.slice(0, 10)} at {comment.created_at.slice(11, 16)}
