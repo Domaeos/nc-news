@@ -187,7 +187,8 @@
 .owned-comment {
   margin-top: 10px;
   margin-bottom: 10px;
-  filter: drop-shadow(1px 5px 11px #62a0ea);
+  /* filter: drop-shadow(1px 5px 11px #62a0ea); */
+  border: 2px solid #acc6eb;
 }
 .new-comment{
   animation: highlight-comment 2000ms ease-out;
