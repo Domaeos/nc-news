@@ -1,9 +1,16 @@
 export default function CommentMessage({ hasSubmitted }) {
-    if (hasSubmitted === null || hasSubmitted === true) return <></>;
+    console.log(hasSubmitted);
+    if (hasSubmitted === null) return <></>;
+
+    if (hasSubmitted === true) return (
+        <article className="comment-info success">
+            Comment uploaded!
+        </article>
+    )
 
     return (
-        <div className="comment-info fail">
+        <article className="comment-info fail">
             Comment failed - please try again in a few minutes
-        </div>
+        </article>
     )
 }

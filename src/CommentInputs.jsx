@@ -6,7 +6,7 @@ import { addComment } from './api/article-api';
 import { UserContext } from './UserContext';
 import CommentMessage from './CommentMessage';
 
-export default function CommentInputs({ setCommenting, setComments }) {
+export default function CommentInputs({ setCommenting, setComments, viewComments }) {
     const [commentBody, setCommentBody] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [hasSubmitted, setHasSubmitted] = useState(null);
@@ -25,21 +25,36 @@ export default function CommentInputs({ setCommenting, setComments }) {
                 return;
             }
             setIsSubmitting(true);
+
             const result = await addComment(params.articleID, { username: user, body: commentBody })
             const createdComment = result.data.comment[0];
             createdComment.newlyAdded = true;
-            setCommentBody("");
-            setCommenting(false);
+
             setComments((prevComments) => {
-                return [createdComment, ...prevComments]
+                if (prevComments) {
+                    return [createdComment, ...prevComments]
+                }
+                return prevComments;
             })
+            if (!viewComments) {
+                setHasSubmitted(true);
+                setTimeout(() => {
+                    setHasSubmitted(null);
+                    setIsSubmitting(false);
+                    setCommentBody("");
+                    setCommenting(false);
+                }, 2000)
+            } else {
+                setIsSubmitting(false);
+                setCommentBody("");
+                setCommenting(false);
+            }
         } catch (err) {
             setHasSubmitted(false);
             setTimeout(() => {
                 setHasSubmitted(null);
+                setIsSubmitting(false);
             }, 2000)
-        } finally {
-            setIsSubmitting(false);
         }
     }
     function handleDiscard() {
