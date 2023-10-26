@@ -12,6 +12,7 @@ import Account from './Account';
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
+import DisplayArticles from './DisplayArticles';
 
 function App() {
   const { user, setUser } = useContext(UserContext)
@@ -57,7 +58,7 @@ function App() {
       </Navbar >
       <main className='app-container'>
         <Routes>
-          <Route path="/articles/" element={<ArticleGrid />} />
+          <Route path="/articles/" element={<DisplayArticles />} />
           <Route path="/account/*" element={<Account />} />
           <Route path="/articles/:articleID" element={<SingleArticle />} />
           <Route path="/" element={<h3>Home</h3>} />

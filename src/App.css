@@ -6,17 +6,40 @@
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
-
+.article-sort-by-section {
+  width: 100%;
+  grid-column: 1 / -1;
+  text-align: center;
+}
 .article-by-id-img {
   height: 400px;
 }
-
+.sort-by-dropdown {
+  width: 400px;
+}
+.article-card-grid {
+  text-decoration: none;
+}
+.article-grid-card-footer {
+  height: 100%;
+  display: grid;
+  font-size: 15px;
+}
 .app-container {
   margin-top: 20px;
   display: grid;
   width: 100vw;
   grid-gap: 10px;
   justify-content: center;
+}
+.loading-spinner-container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 20px;
+}
+.spinner-user-info {
+  margin-top: 20px;
 }
 
 .add-comment-header {
