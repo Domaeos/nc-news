@@ -81,15 +81,30 @@
 
 .comment-card-header {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr auto;
 }
 
 .comment-card-footer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
   text-align: right;
   margin-top: 5px;
   font-size: 10px;
 }
-
+.comment-action-info {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  text-align: center;
+}
+.comment-footer-date {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-content: end;
+}
 .article-comment-count {
   text-align: right;
   display: grid;
@@ -162,6 +177,7 @@
 }
 
 .fail {
+  font-size: 15px;
   color: red;
 }
 .add-comment-section {
@@ -191,9 +207,17 @@
 .discard-comment-button {
   width: 100px;
 }
-
+.owned-comment {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* filter: drop-shadow(1px 5px 11px #62a0ea); */
+  border: 2px solid #acc6eb;
+}
 .new-comment{
   animation: highlight-comment 2000ms ease-out;
+}
+.delete-comment {
+  animation: commment-delete 2000ms ease-out;
 }
 
 /* 
@@ -208,5 +232,15 @@ KEYFRAMES / ANIMATIONS]
   }
   100% {
     background-color: white;
+  }
+}
+
+@keyframes comment-delete {
+  0% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0%;
   }
 }
