@@ -59,7 +59,6 @@ function App() {
         <Routes>
           <Route path="/articles/" element={<ArticleGrid />} />
           <Route path="/account/*" element={<Account />} />
-
           <Route path="/articles/:articleID" element={<SingleArticle />} />
           <Route path="/" element={<h3>Home</h3>} />
           <Route path="*" element={<h3>Not found</h3>} />
