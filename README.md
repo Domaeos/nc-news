@@ -30,9 +30,9 @@ If testing with the default online repository you can skip these steps:
 - Follow the link provided by react in your command line: `http:/localhost:<PORT>`
 - This project has no back-end authorisation for users - to test users simply add a valid username and any password. A valid username to test is: `tickle122` but usernames can be found at the link below, or alternatively the `api/users` of your own back-end
 
-	https://news-app-4jdh.onrender.com/api/users
+https://news-app-4jdh.onrender.com/api/users
 
 If you decide to host a clone/fork of this repository the following Vite documentation can provide further information:
 
-	https://vitejs.dev/guide/static-deploy.html
+https://vitejs.dev/guide/static-deploy.html
 
