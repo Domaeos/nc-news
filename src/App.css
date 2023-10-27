@@ -278,21 +278,23 @@ KEYFRAMES / ANIMATIONS]
 
 @keyframes highlight-comment {
   0% {
+    border-color: #ffffffff;
     background-color: rgb(165, 246, 165);
   }
 
   100% {
+    border-color: #acc6eb;;
     background-color: white;
   }
 }
 
 @keyframes show-delete {
   0% {
-    border-color: rgb(190, 100, 100);
     opacity: 1;
   }
 
   100% {
+    border-color: red;
     opacity: 0;
   }
 }
