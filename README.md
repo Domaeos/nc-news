@@ -1,11 +1,7 @@
 
-----
-
 ## Description
 
 A React developed app to allow users to view articles, vote on those articles as well as sign in and comment on those articles. This app requires the accompanying back-end which after setting up can be used with your own app, or by default your local repository will connect to the default example back-end. This can be changed in `src/api/article-api.js` by altering the base-URL property of Axios.
-
-----
 
 ## Back-end
 
@@ -14,14 +10,9 @@ The express driven back-end for this project can be found at:
 https://github.com/Domaeos/BE_news
 
 
-----
-
 ## Requirements
 
 Minimum node version to run this app is: `v20.6.1`
-
-
------
 
 ## Setup
 
