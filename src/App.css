@@ -34,6 +34,7 @@
   height: 100%;
   width: 100%;
   grid-template-rows: auto 1fr;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .article-grid-card-footer {
@@ -51,6 +52,7 @@
   justify-items: center;
   text-align: center;
 }
+
 
 .loading-spinner-container {
   display: grid;
@@ -93,6 +95,7 @@
 
 .comment-card {
   width: 80%;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .comment-card-author {
@@ -171,6 +174,9 @@
 
 .article-grid-titles {
   border: none;
+}
+.single-article-card {
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .single-article-footer {
@@ -258,7 +264,6 @@
 .owned-comment {
   margin-top: 10px;
   margin-bottom: 10px;
-  /* filter: drop-shadow(1px 5px 11px #62a0ea); */
   border: 2px solid #acc6eb;
 }
 
