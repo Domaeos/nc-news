@@ -6,25 +6,31 @@
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
+
 .article-sort-by-section {
   width: 100%;
   grid-column: 1 / -1;
   text-align: center;
 }
+
 .article-by-id-img {
-  height: 400px;
+  aspect-ratio: auto;
 }
+
 .sort-by-dropdown {
   width: 400px;
 }
+
 .article-card-grid {
   text-decoration: none;
 }
+
 .article-grid-card-footer {
   height: 100%;
   display: grid;
   font-size: 15px;
 }
+
 .app-container {
   margin-top: 20px;
   display: grid;
@@ -32,12 +38,14 @@
   grid-gap: 10px;
   justify-content: center;
 }
+
 .loading-spinner-container {
   display: grid;
   justify-content: center;
   justify-items: center;
   margin-top: 20px;
 }
+
 .spinner-user-info {
   margin-top: 20px;
 }
@@ -50,7 +58,7 @@
 
 .article-container {
   display: grid;
-  width: 80vw;
+  width: 90vw;
   grid-gap: 10px;
   align-content: center;
   margin-bottom: 20px;
@@ -92,6 +100,7 @@
   margin-top: 5px;
   font-size: 10px;
 }
+
 .comment-action-info {
   display: grid;
   width: 100%;
@@ -99,79 +108,94 @@
   align-content: center;
   text-align: center;
 }
+
 .comment-footer-date {
   display: grid;
   width: 100%;
   height: 100%;
   align-content: end;
 }
+
 .article-comment-count {
   text-align: right;
   display: grid;
-  width: 100%;
+  width: auto;
   height: 100%;
-  align-content: center;
-  margin-right: 20px;
-  margin-bottom: 5px;
-  padding: 20px;
+  align-content: start;
 }
 
 .login-input {
   width: 400px;
 }
+
 .account-login-button {
   margin-top: 20px;
   width: 100%;
 }
+
 .account-login-form {
   display: grid;
   width: 100%;
   justify-items: center;
 }
+
 .stay-signed-in-switch {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .error-message {
   width: 100%;
   text-align: center;
   font-size: 20px;
   color: red;
 }
+
 .card-topic {
   font-size: 10px;
 }
 
 .single-article-footer {
   display: grid;
+  grid-template-areas: "vote comments";
   width: 100%;
+  padding: 20px;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  align-content: center;
+  align-items: start;
 }
 
 .single-article-votes {
-  margin-left: 10px;
   display: grid;
-  width: 100%;
-  height: 100%;
+  grid-template-areas: "upButton voteCount downButton userInfo";
   grid-gap: 10px;
   grid-template-columns: repeat(3, auto) 1fr;
   align-items: center;
   align-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
 }
 
 .article-vote-button {
   display: inline-block;
 }
+
+.vote-count {
+  grid-area: voteCount;
+}
+
+.aritcle-vote-button.up {
+  grid-area: upButton;
+}
+
+.aritcle-vote-button.down {
+  grid-area: downButton;
+}
+
 .vote-info {
-  margin-left: 20px;
+  grid-area: userInfo;
+  text-align: center;
   display: inline-block;
   font-size: 10px;
 }
+
 .success {
   color: green;
 }
@@ -180,6 +204,7 @@
   font-size: 15px;
   color: red;
 }
+
 .add-comment-section {
   display: grid;
   width: 100%;
@@ -192,32 +217,57 @@
   display: grid;
   width: 80%;
 }
+
 .comment-body-textarea {
   resize: none;
 }
+
 .comment-button-grid {
   display: grid;
   justify-items: right;
   grid-gap: 10px;
   grid-template-columns: 1fr auto;
 }
+
 .submit-comment-button {
   width: 100px;
 }
+
 .discard-comment-button {
   width: 100px;
 }
+
 .owned-comment {
   margin-top: 10px;
   margin-bottom: 10px;
   /* filter: drop-shadow(1px 5px 11px #62a0ea); */
   border: 2px solid #acc6eb;
 }
-.new-comment{
+
+.new-comment {
   animation: highlight-comment 2000ms ease-out;
 }
-.delete-comment {
-  animation: commment-delete 2000ms ease-out;
+
+.comment-delete {
+  animation: show-delete 2000ms forwards;
+}
+/*
+
+Media Queries
+
+
+*/
+
+@media screen and (max-width: 600px) {
+  .single-article-votes {
+    display: grid;
+    grid-template-areas: 
+    "upButton voteCount downButton"
+    "userInfo userInfo userInfo";
+  }
+  .comment-card {
+    width: 95%;
+  }
 }
 
 /* 
@@ -230,17 +280,19 @@ KEYFRAMES / ANIMATIONS]
   0% {
     background-color: rgb(165, 246, 165);
   }
+
   100% {
     background-color: white;
   }
 }
 
-@keyframes comment-delete {
+@keyframes show-delete {
   0% {
-    opacity: 100%;
+    border-color: rgb(190, 100, 100);
+    opacity: 1;
   }
 
   100% {
-    opacity: 0%;
+    opacity: 0;
   }
 }
