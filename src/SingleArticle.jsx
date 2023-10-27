@@ -38,7 +38,7 @@ export default function SingleArticle() {
     return (
 
         <article className='article-container'>
-            <Card>
+            <Card className="single-article-card">
                 <Card.Header>{article.title}</Card.Header>
                 <Card.Body>
                     <Card.Img className="article-by-id-img" variant="top" src={article.article_img_url} />

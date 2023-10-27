@@ -21,7 +21,10 @@ export default function ShowComments({ comments, setComments, articleID }) {
         const fetchComments = async () => {
             try {
                 const fetchedComments = await getComments(articleID);
-                setComments(fetchedComments)
+                const sortedComments = fetchedComments.sort((a, b) => {
+                    return b.created_at.localeCompare(a.created_at)
+                })
+                setComments(sortedComments)
             } catch (err) {
                 setErr(err)
             } finally {
@@ -35,7 +38,11 @@ export default function ShowComments({ comments, setComments, articleID }) {
         try {
             const idToDelete = e.target.id.replace("del_", "")
             await deleteComment(idToDelete)
-            setDeleted(idToDelete)
+            const commentCard = document.querySelector(`#comment_${idToDelete}`)
+            commentCard.classList.add("comment-delete")
+            setTimeout(() => {
+                setDeleted(idToDelete)
+            }, 2000)
         } catch (err) {
             const failedID = e.target.id.replace("del_", "");
             setDeleteErr(+failedID);
@@ -53,7 +60,7 @@ export default function ShowComments({ comments, setComments, articleID }) {
         <>
             {comments.map(comment => {
                 return (
-                    <Card key={comment.comment_id} className={`comment-card`
+                    <Card id={"comment_" + comment.comment_id} key={comment.comment_id} className={`comment-card`
                         + ((comment.newlyAdded ? " new-comment" : "")
                             + ((user === comment.author) ? " owned-comment" : ""))}>
                         <Card.Header>
