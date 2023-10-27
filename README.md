@@ -23,11 +23,11 @@ To run this app locally and test on your system you will need to do the followin
 - Clone/Fork the project repository: `gh repo clone Domaeos/nc-news`
 - Enter the cloned repository: `cd /nc-news`
 - Install the dependencies: `npm i`
-
+---
 If testing with the default online repository you can skip these steps:
 - Ensure your back-end of this repository is hosted/or running locally and copy the link
 - Change `baseURL` to your back-end link in `./src/api/article-api.js`
-
+---
 - Use `npm run dev` to launch locally
 - Follow the link provided by react in your command line: `http:/localhost:<PORT>`
 - This project has no back-end authorisation for users - to test users simply add a valid username and any password. A valid username to test is: `tickle122` but usernames can be found at the link below, or alternatively the `api/users` of your own back-end
