@@ -13,6 +13,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
 import DisplayArticles from './DisplayArticles';
+import InvalidPage from './InvalidPage';
 
 function App() {
   const { user, setUser } = useContext(UserContext)
@@ -62,7 +63,7 @@ function App() {
           <Route path="/account/*" element={<Account />} />
           <Route path="/articles/:articleID" element={<SingleArticle />} />
           <Route path="/" element={<h3>Home</h3>} />
-          <Route path="*" element={<h3>Not found</h3>} />
+          <Route path="*" element={<InvalidPage />} />
         </Routes>
       </main>
     </>

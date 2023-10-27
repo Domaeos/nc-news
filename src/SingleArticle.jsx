@@ -8,6 +8,7 @@ import ShowComments from './ShowComments';
 import { UserContext } from './UserContext';
 import ArticleVote from './ArticleVote';
 import CommentForm from './CommentForm';
+import InvalidArticle from './InvalidArticle';
 
 export default function SingleArticle() {
     const { user, setUser } = useContext(UserContext)
@@ -33,7 +34,7 @@ export default function SingleArticle() {
     }, [])
 
     if (isLoading) return <LoadingSpinner message="Fetching article" />
-    if (err) return <ErrorMessage message="Article not found" />
+    if (err) return <InvalidArticle />
 
     return (
 
